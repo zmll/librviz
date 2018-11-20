@@ -62,6 +62,8 @@ public Q_SLOTS:
 private slots:
     void on_pushButton_clicked();
 
+    void on_btn_mapping_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;

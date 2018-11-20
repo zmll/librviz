@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDebug>
 #include <QMessageBox>
+#include <QProcess>
 
 RoMap::RoMap(QWidget *parent) :
   QWidget(parent),
@@ -31,6 +32,7 @@ RoMap::RoMap(QWidget *parent) :
 
 
 
+
 }
 
 RoMap::~RoMap()
@@ -44,21 +46,34 @@ void RoMap::ros_init(int argc,char **argv)
 }
 void RoMap::on_btn_display_clicked()
 {
-  rviz::Display *map_=manager_->createDisplay("rviz/Map","adjustable map",true);
-  ROS_ASSERT(map_!=NULL);
-  map_->subProp("Topic")->setValue("/map");
+   // QProcess process;
+    //process.execute("source devel/setup.bash");
+   // process.execute("roslaunch rbx1_bringup fake_turtlebot.launch");
+    //process.execute("roslaunch rbx1_nav fake_amcl.launch");
 
-  rviz::Display *robot_=manager_->createDisplay("rviz/RobotModel","adjustable robot",true);
-   ROS_ASSERT(robot_!=NULL);
-  robot_->subProp("Robot Description")->setValue("robot_description");
+    manager_->removeAllDisplays();
+
+    rviz::Display *map_=manager_->createDisplay("rviz/Map","adjustable map",true);
+    ROS_ASSERT(map_!=NULL);
+    map_->subProp("Topic")->setValue("/map");
+
+    rviz::Display *robot_=manager_->createDisplay("rviz/RobotModel","adjustable robot",true);
+     ROS_ASSERT(robot_!=NULL);
+    robot_->subProp("Robot Description")->setValue("robot_description");
 
 
-  rviz::Display *laser_=manager_->createDisplay("rviz/LaserScan","adjustable scan",true);
-  ROS_ASSERT(laser_!=NULL);
-  laser_->subProp("Topic")->setValue("/scan");
-  laser_->subProp("Size (m)")->setValue("0.1");
+    rviz::Display *laser_=manager_->createDisplay("rviz/LaserScan","adjustable scan",true);
+    ROS_ASSERT(laser_!=NULL);
+    laser_->subProp("Topic")->setValue("/scan");
+    laser_->subProp("Size (m)")->setValue("0.1");
 
-}
+    //manager_->startUpdate();
+
+
+   //manager_->stopUpdate();
+
+  }
+
 
 void RoMap::on_btn_quit_clicked()
 {

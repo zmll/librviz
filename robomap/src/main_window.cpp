@@ -14,6 +14,7 @@
 #include <iostream>
 #include "../include/robomap/main_window.hpp"
 #include "../include/robomap/romap.h"
+#include "../include/robomap/mapp.h"
 
 /*****************************************************************************
 ** Namespaces
@@ -177,4 +178,10 @@ void robomap::MainWindow::on_pushButton_clicked()
 {
   RoMap *map = new RoMap;
   map->show();
+}
+
+void robomap::MainWindow::on_btn_mapping_clicked()
+{
+    MAPP *mapp=new MAPP;
+    mapp->show();
 }

@@ -98,7 +98,7 @@
    <property name="minimumSize">
     <size>
      <width>325</width>
-     <height>433</height>
+     <height>465</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -255,6 +255,13 @@
             <widget class="QPushButton" name="pushButton">
              <property name="text">
               <string>romap</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QPushButton" name="btn_mapping">
+             <property name="text">
+              <string>mappping</string>
              </property>
             </widget>
            </item>
